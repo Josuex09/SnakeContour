@@ -1,10 +1,11 @@
-function [Cont] = Continuity(x,y,preX,preY)
+function [Cont] = Continuity(x,y,preX,preY,d)
     %neighbors size = 3
     
     %Matrix with x values
     Mx = ones(3,1) * [-1,0,1] + x;
     %Matrix with y values
-    My =  [-1;0;1] * ones(1,3) + y;
+    My =  [-1;0;1] * ones(1,3) + y;  
+    
     
     %Difference in x
     Dx = (Mx - preX).^2;
@@ -12,7 +13,8 @@ function [Cont] = Continuity(x,y,preX,preY)
     Dy = (My - preY).^2;
     
     %Continuity
-    Cont = Dx + Dy; 
+    Cont =Dx+ Dy;
+ 
 
     %Normalize
 

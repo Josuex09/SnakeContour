@@ -9,11 +9,13 @@ function [Curv] = Curv(x,y,preX,preY,postX,postY)
     %Difference in x
     Cx = (preX - 2 * Mx + postX).^2;
     %Difference in y
-    Cy = (preY - 2 * My + preX).^2;
+    Cy = (preY - 2 * My + postY).^2;
+    
+    
     
     %Continuity
     Curv = Cx + Cy; 
-
+    
     %Normalize
 
     Max = max(max(Curv));
