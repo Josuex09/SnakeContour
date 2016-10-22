@@ -1,4 +1,4 @@
-function [Cont] = Continuity(x,y,preX,preY,d)
+function [Cont] = Continuity(x,y,preX,preY)
     %neighbors size = 3
     
     %Matrix with x values
