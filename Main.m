@@ -1,5 +1,5 @@
 Image = imread('nuclei.png');
-[Cont2,Curv2] = activeContours2(20, 200, 100, Image,0.25,0.25,0.55);
+[Cont2,Curv2] = activeContours2(20, 100, 55, Image,0.4,0.3,0.34);
 
 %Image = imread('moneda.PNG');
 %[Cont,Curv] = activeContours2(47,100,50,Image,0.35,0.35,0.35);

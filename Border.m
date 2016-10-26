@@ -1,8 +1,8 @@
 function [B] = Border(x,y,Image)
     
     [Gmag,Gdir] = imgradient(Image,'prewitt');  
-    x = round(x)+1;
-    y = round(y)+1;
+    x = round(x);
+    y = round(y);
     %BorderImage = edge(Image);
     
     %neighbors size = 3

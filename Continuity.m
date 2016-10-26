@@ -6,7 +6,6 @@ function [Cont] = Continuity(x,y,preX,preY)
     %Matrix with y values
     My =  [-1;0;1] * ones(1,3) + y;  
     
-    
     %Difference in x
     Dx = (Mx - preX).^2;
     %Difference in y

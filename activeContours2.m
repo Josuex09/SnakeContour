@@ -1,9 +1,7 @@
 function [x,y]  = activeContours2(radius, numIter, nPoints, inputImage,alpha,beta,gamma)
     
     [x,y] =  InitialContour(nPoints, radius,50,50);
-
-    [n,m] = size(x); 
-
+    
     %Get gray image
     Image = rgb2gray(inputImage);
     
@@ -15,7 +13,7 @@ function [x,y]  = activeContours2(radius, numIter, nPoints, inputImage,alpha,bet
 
     
     for iter=1:numIter
-        for i= 1:n
+        for i= 1:nPoints
         %   Previous and Post positions
             preX = circshift(x,1);
             preY = circshift(y,1);
