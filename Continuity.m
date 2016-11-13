@@ -1,6 +1,5 @@
 function [Cont] = Continuity(x,y,preX,preY)
-    %neighbors size = 3
-    
+       
     %Matrix with x values
     Mx = ones(3,1) * [-1,0,1] + x;
     %Matrix with y values
@@ -16,7 +15,6 @@ function [Cont] = Continuity(x,y,preX,preY)
  
 
     %Normalize
-
     Max = max(max(Cont));
     if Max ~= 0 
         Cont = Cont / Max;

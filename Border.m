@@ -3,9 +3,6 @@ function [B] = Border(x,y,Image)
     [Gmag,Gdir] = imgradient(Image,'prewitt');  
     x = round(x);
     y = round(y);
-    %BorderImage = edge(Image);
-    
-    %neighbors size = 3
     
     %Matrix with x values
     Mx = ones(3,1) * [-1,0,1] + x;
@@ -25,6 +22,7 @@ function [B] = Border(x,y,Image)
         indexY = indexY+1;
     end
     
+    %Normalize
     Max = max(max(B));
     if Max ~= 0 
        B = B/Max; 

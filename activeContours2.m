@@ -1,6 +1,7 @@
-function [x,y]  = activeContours2(radius, numIter, nPoints, inputImage,alpha,beta,gamma)
+function []= activeContours2(radius,initialX,initialY, numIter, nPoints, inputImage,alpha,beta,gamma)
     
-    [x,y] =  InitialContour(nPoints, radius,50,50);
+    %Get initial snake points
+    [x,y] =  InitialContour(nPoints, radius,initialX, initialY);
     
     %Get gray image
     Image = rgb2gray(inputImage);
@@ -19,23 +20,24 @@ function [x,y]  = activeContours2(radius, numIter, nPoints, inputImage,alpha,bet
             preY = circshift(y,1);
             postX = circshift(x,-1);
             postY = circshift(y, -1);
+            
+            %Energy values
             Cont = Continuity(x(i),y(i),preX(i),preY(i));
             Curv = Curvature(x(i),y(i),preX(i),preY(i),postX(i),postY(i));
             Bord =  Border(x(i),y(i),Image);
-
-            En = alpha * Cont + beta * Curv - gamma * Bord;
-            [r, c] = find(En == min(min(En)));
-            xnew = x(i) + (c(1) - 2);
-            ynew = y(i) + (r(1) - 2);
+            %Get Energy
+            Energy = alpha * Cont + beta * Curv - gamma * Bord;
+            [a, b] = find(Energy == min(min(Energy)));
+            
+            xnew = x(i) + (b(1) - 2);
+            ynew = y(i) + (a(1) - 2);
             x(i) = xnew;
             y(i) = ynew;
         end
-        disp(strcat('Iter: ',int2str(iter)));
-        
+        disp(strcat('Iter: ',int2str(iter),' Energía: ', num2str(Energy(a,b))));
         set(h,'YData',y(:,1));
         set(h,'XData',x(:,1));
         drawnow;
-        %plot(x(:,1),y(:,1),'r');
     end
 
 end

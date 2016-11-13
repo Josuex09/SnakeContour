@@ -1,5 +1,4 @@
 function [Curv] = Curv(x,y,preX,preY,postX,postY)
-    %neighbors size = 3
     
     %Matrix with x values
     Mx = ones(3,1) * [-1,0,1] + x;
